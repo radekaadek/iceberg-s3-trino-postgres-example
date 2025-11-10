@@ -22,7 +22,7 @@ services:
       retries: 5
 
   trino:
-    build: .
+    image: trinodb/trino:478
     container_name: trino-coordinator
     networks:
       - data-net
@@ -57,7 +57,7 @@ services:
       test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://seaweedfs-master:8333/ || exit 1"]
       interval: 10s
       timeout: 5s
-      retries: 4
+      retries: 5
       start_period: 15s
 volumes:
   iceberg-postgres-data:
